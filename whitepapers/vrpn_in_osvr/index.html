@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<title>
+OSVR Developer Portal
+</title>
+<!-- all styles, including google web fonts -->
+<link href="../../stylesheets/styles.css" rel="stylesheet" type="text/css" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60529815-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<div class='container'>
+<!-- static navbar -->
+<nav class='navbar navbar-default'>
+<div class='container-fluid'>
+<div class='navbar-header'>
+<button aria-controls='navbar' aria-expanded='false' class='navbar-toggle collapsed' data-target='#navbar' data-toggle='collapse' type='button'>
+<span class='sr-only'>Toggle navigation</span>
+<!-- Pretty sure this part makes the "hamburger menu" -->
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+<a class='navbar-brand' href='/'>
+<img src="../../images/osvr-logo-menu.png" alt="Osvr logo menu" />
+Developer Portal
+</a>
+</div>
+<div class='navbar-collapse collapse' id='navbar'>
+<ul class='nav navbar-nav navbar-right'>
+<li class='dropdown'>
+<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Other OSVR Sites
+<span class='caret'></span>
+</a>
+<ul class='dropdown-menu' role='menu'>
+<li>
+<!-- the query string excludes forks from this list, making it cleaner -->
+<a href='https://github.com/OSVR?query=only%3Asources'>
+GitHub Organization and OSVR Projects
+</a>
+</li>
+<li>
+<a href='https://waffle.io/osvr/osvr-core'>
+OSVR issue tracker summary board on waffle.io
+</a>
+</li>
+<li>
+<a href='http://www.osvr.org/blog/'>
+Dev Blog
+</a>
+</li>
+<li>
+<a href='http://support.osvr.com'>
+Support Portal
+</a>
+</li>
+<li class='divider'></li>
+<li>
+<a href='http://www.osvr.org'>
+OSVR Home
+</a>
+</li>
+</ul>
+</li>
+</ul>
+<!-- google custom search -->
+<script>
+  (function() {
+    var cx = '016285390483464504735:ifzwvrb3lp4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<!--<gcse:search></gcse:search>-->
+
+<div class='navbar-nav navbar-right gcse-osvrnavbar'>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+</nav>
+<div class='container-fluid' id='page-content'>
+<h1 id="using-external-vrpn-devices-in-osvr">Using External VRPN Devices in OSVR</h1>
+
+<p>Ryan A. Pavlik<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>, April 27, 2015</p>
+
+<h2 id="introduction-and-requirements">Introduction and Requirements</h2>
+
+<p>In order to provide both proven performance and wide compatibility, portions of OSVR use and extend the <a href="http://vrpn.org">VRPN (Virtual Reality Peripheral Network)</a> software and device model. Early releases of OSVR provided an experimental way to integrate external VRPN trackers into OSVR, but the 0.2 release removed that experimental support in favor of complete support for using tracker, button, and analog devices from an external (local or remote) VRPN server.</p>
+
+<p>The change was required to integrate these devices into the metadata-rich &quot;path tree&quot; model used by OSVR. Native OSVR device drivers provide not only access to the device data, but also a JSON &quot;device descriptor&quot; that describes the device capabilities and the semantic meaning of the numbered sensors. As standard VRPN servers lack this additional data, using a VRPN device in OSVR requires that the user supply this information, through the configuration file, to properly integrate the device.</p>
+
+<p>As mentioned above, the methods described in this note require a version of OSVR-Core 0.2 or newer. Both client (application) DLLs and the server package must be 0.2 or newer, as that release broke protocol compatibility for metadata to enable greater functionality.</p>
+
+<p>With regards to the external VRPN server, it may be any 07.XX release (newer preferred, particularly for button devices), running locally or remotely. (This support does includes devices that integrate the VRPN server as their native reporting protocol, as long as the protocol is version 7.)</p>
+
+<p>If you run a <code>vrpn_server</code> process on the same machine as the OSVR server, you will have to pass an alternate port number (such as <code>3884</code>) as a command line argument to <code>vrpn_server</code> to avoid collision with the embedded VRPN server in OSVR. Configuration of such an external server is beyond the scope of this document: it is assumed that you know the device name (often something like <code>Tracker0</code>) and the server (commonly just a hostname like <code>trackerserver</code>, but may be hostname and port <code>localhost:3884</code> for the suggested local <code>vrpn_server</code>, or even include transport <code>tcp://trackerserver:3884</code>). These two parts are typically specified with the <code>@</code> symbol separating them, e.g. <code>Tracker0@localhost:3884</code>.</p>
+
+<p>For the purposes of this document, we&#39;ll assume you are using some device similar in functionality to a tracker wand or a Razer Hydra. That is, a device that provides tracking, button, and analog data on a single name. This process may be repeated to add any number of external VRPN device names to the system.</p>
+
+<h3 id="tips">Tips</h3>
+
+<p>You may wish to consult or start with the <a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/sample-configs/osvr_server_config.externalvrpn.sample.json"><code>osvr_server_config.externalvrpn.sample.json</code></a> sample config file as you create your own. The documentation below walks through construction of this config file section by section.</p>
+
+<p>A text editor with support for JSON can be very helpful in editing these configuration files, for syntax checking, code folding, and automatic indentation.</p>
+
+<ul>
+<li>If you cannot install software locally, <a href="http://jsoneditoronline.org/">JSON Editor Online</a> is a good editor. The left-most button on the text side is a &quot;beautify&quot; button that automatically re-indents the file. An X in the margin indicates parsing errors (usually after your typo) that provides some details on hover. Note that changes to one of the representations (text or tree) must be manually synced to the other representation using the arrow buttons in the center of the interface.</li>
+<li>If you can install software locally, the <a href="http://atom.io">Atom</a> editor is a web-format-focused text editor with good support for JSON. It lacks a graphical view as found in the web app above, but has somewhat more useful parsing error messages. As a locally-installed app, it is easier to use to edit files locally (no need to copy and paste between a web app and text editor, or rename files saved from the web app). However, due to its use of the Chromium Embedded Framework with WebGL enabled, it does not work over a remote X connection or X forwarding (see <a href="https://github.com/atom/atom/issues/4360#issuecomment-77260829">issue tracker</a>). If that caveat did not make sense to you, then you are unlikely to be in the use case that is affected.</li>
+</ul>
+
+<h2 id="setting-up-the-configuration">Setting Up the Configuration</h2>
+
+<h3 id="step-1-importing-and-describing-the-vrpn-device">Step 1: Importing and describing the VRPN device</h3>
+
+<p>The first step is to create the path tree node representing your external device, with the device name, server, and descriptor data. This is done in a top-level element of the config file (<code>osvr_server_config.json</code> by default) object called <code>externalDevices</code>. A sample excerpt showing this section follows.</p>
+
+<pre><code class="json">  &quot;externalDevices&quot;: {
+    &quot;/myExternalDevice&quot;: {
+      &quot;deviceName&quot;: &quot;Tracker0&quot;,
+      &quot;server&quot;: &quot;localhost:3884&quot;,
+      &quot;descriptor&quot;: /* can also provide a file path here, or this is the minimal */ {
+        &quot;interfaces&quot;: {
+          &quot;tracker&quot;: {},
+          &quot;button&quot;: {},
+          &quot;analog&quot;: {}
+        }
+      }
+    }
+  }
+</code></pre>
+
+<p>The key <code>externalDevices</code> refers to a JSON object, where each key is the &quot;path&quot; where a device node will be created, and the value is an object containing the information required to create that node. (In the case of a native OSVR device, this path would have two levels: first the plugin name then the device name, like <code>/com_osvr_Multiserver/OSVRHackerDevKit0</code>. Once this <code>externalDevices</code> section is set up, you&#39;ll be able to refer to your external device just as you would a native OSVR device.)</p>
+
+<p>In the example above, we&#39;ve arbitrarily chosen <code>/myExternalDevice</code> as the path. The <code>deviceName</code> key contains our VRPN device name (<code>Tracker0</code>), while the <code>server</code> key contains the server info (<code>localhost:3884</code>). The last element of the object, labeled <code>descriptor</code>, is the metadata that OSVR makes use of but that VRPN does not provide. On the most basic level, it can be what is shown here: just an embedded JSON object with an <code>interfaces</code> member, that contains an object with members for each interface type you want to access. Instead of an object, you could also supply a string, which would be interpreted as a filename containing a JSON device descriptor. This is useful particularly if you&#39;re using the same device in multiple places: you can share the device descriptor file separately from the server config.</p>
+
+<p>Variations of the minimal descriptor embedded and described above is sufficient to follow the rest of these instructions and use your device in OSVR. As such, further explanation of the full device descriptor format is beyond the scope of this document. However, if you wish (for instance, if you might distribute your descriptor file), you can provide a fully-featured device descriptor like those embedded in OSVR plugins. Some examples of full device descriptors follow:</p>
+
+<ul>
+<li><a href="https://github.com/OSVR/OSVR-Core/blob/master/plugins/multiserver/com_osvr_Multiserver_OSVRHackerDevKit.json">HDK tracker</a></li>
+<li><a href="https://github.com/OSVR/OSVR-Core/blob/master/plugins/multiserver/com_osvr_Multiserver_RazerHydra.json">Razer Hydra</a></li>
+</ul>
+
+<p>You may use the <a href="https://github.com/OSVR/OSVR-JSON-Editor">OSVR JSON Editor</a> web app to help you compose this section: it is a single-page application that uses the <a href="https://github.com/OSVR/OSVR-JSON-Schemas">device descriptor JSON Schema</a> to automatically generate an editor interface.</p>
+
+<h4 id="verifying-your-results">Verifying your results</h4>
+
+<p>At this point, you may stop and test your config file. You should see a line resembling the following when you run <code>osvr_server</code> with your config file:</p>
+
+<pre><code>[OSVR Server] External devices found and parsed from config file.
+</code></pre>
+
+<p>Running the <code>osvr_print_tree</code> utility should also show you something like this:</p>
+
+<pre><code>[   DeviceElement] /myExternalDevice
+                     - corresponds to Tracker0@localhost:3884
+[InterfaceElement] /myExternalDevice/analog
+[InterfaceElement] /myExternalDevice/button
+[InterfaceElement] /myExternalDevice/tracker
+</code></pre>
+
+<p>If you see the <code>DeviceElement</code> lines, but not the <code>InterfaceElement</code> lines, then there was an issue parsing your descriptor and it didn&#39;t find an <code>interfaces</code> section. You might find more information in the output of <code>osvr_server</code>.</p>
+
+<h3 id="step-2-setting-up-aliases">Step 2: Setting up aliases</h3>
+
+<p>The OSVR system strongly discourages the use of hardware-specific paths, and instead recommends your application use &quot;semantic paths&quot; that can be set up to point to different hardware resources on different systems. (In older versions of OSVR, you may have seen mention of &quot;routes&quot; - that is the old name for the same concept. The old routes-based config file syntax is deprecated, with the new aliases syntax preferred.)  On devices with OSVR plugins, their device descriptor usually sets up a <code>/semantic</code> tree underneath the device node, and may also include an <code>automaticAliases</code> section that provides suggestions for global alias paths. Unless you&#39;ve added all these features to the device descriptor you provided in step 1, you&#39;ll have to set up the appropriate aliases in the config file.</p>
+
+<p>Common paths include:</p>
+
+<ul>
+<li><code>/me/head</code> - for a head tracker</li>
+<li><code>/me/hands/left</code> - for a hand tracker or a device (wand, etc) held in the left hand.</li>
+<li><code>/me/hands/right</code> - similar</li>
+</ul>
+
+<p>There is also a convention of placing &quot;controller&quot; inputs (buttons, triggers, joysticks) under <code>/controller</code>, and further <code>/controller/left</code> and <code>/controller/right</code> when the inputs are so associated with a tracker. Fewer specific paths are &quot;well-known&quot; in this portion of the path tree, and you are encouraged to create and use other semantic paths as aliases (<code>/actions/jump</code> as an alias for <code>/controller/a</code>) in your application and configuration.</p>
+
+<p>The aliases, like the external devices, are configured with a JSON object in the config file, this time under the key <code>aliases</code>. An excerpt might look like this:</p>
+
+<pre><code class="json">  &quot;aliases&quot;: {
+    &quot;/controller/trigger&quot;: &quot;/myExternalDevice/analog/0&quot;,
+    &quot;/controller/a&quot;: &quot;/myExternalDevice/button/0&quot;,
+    &quot;/me/head&quot;: {
+      &quot;rotate&quot;: {
+        &quot;axis&quot;: &quot;-x&quot;,
+        &quot;degrees&quot;: 180
+      },
+      &quot;child&quot;: {
+        &quot;changeBasis&quot;: {
+          &quot;x&quot;: &quot;x&quot;,
+          &quot;y&quot;: &quot;-z&quot;,
+          &quot;z&quot;: &quot;-y&quot;
+        },
+        &quot;child&quot;: &quot;/myExternalDevice/tracker/0&quot;
+      }
+    },
+    &quot;/me/hands/right&quot;: {
+      &quot;rotate&quot;: {
+        &quot;axis&quot;: &quot;-x&quot;,
+        &quot;degrees&quot;: 180
+      },
+      &quot;child&quot;: {
+        &quot;changeBasis&quot;: {
+          &quot;x&quot;: &quot;x&quot;,
+          &quot;y&quot;: &quot;-z&quot;,
+          &quot;z&quot;: &quot;-y&quot;
+        },
+        &quot;child&quot;: &quot;/myExternalDevice/tracker/1&quot;
+      }
+    }
+  }
+</code></pre>
+
+<p>This example shows two different syntaxes. The simplest, used for analog and button devices, as well as for trackers that do not need any transformation applied to align with the OSVR global coordinate system, is to simply have the alias path to create as the key, and the path the alias points to as the string value. The first two entries in the example above take this form.</p>
+
+<p>The second syntax (used by the second two entries) is more complex because it enables application of a transformation tree to tracker data. The key, as before, is the alias path to create. However, in this case, the value is a JSON object. This object can have arbitrary levels of nesting, with each internal level specified by the key <code>child</code>. The final level must terminate with a <code>child</code> key whose value is a string: the path that the alias transforms and points to. Each level may contain transformation objects (like <code>changeBasis</code> and <code>rotate</code> shown here) - see other example files and/or separate documentation on supported transformations.</p>
+
+<p>In all cases, the alias terminates at a path under the device path you set up in step 1. The syntax is <code>/devicename/interfacename/sensornumber</code> (or occasionally <code>/devicename/interfacename</code> for all sensors). Of course, if you set up a device descriptor that contains semantic paths, you can reference those instead of the raw device path in this step.</p>
+
+<h4 id="verifying-your-results">Verifying your results</h4>
+
+<p>At this point, you can run <code>osvr_server</code> again with your config file. The server output will not change, but theh output of running <code>osvr_print_tree</code> will reflect the changes to the path tree that your aliases made. For the example aliases above, you&#39;ll see something like this:</p>
+
+<pre><code>[   DeviceElement] /myExternalDevice
+                     - corresponds to Tracker0@localhost:3664
+[InterfaceElement] /myExternalDevice/analog
+[   SensorElement] /myExternalDevice/analog/0
+[InterfaceElement] /myExternalDevice/button
+[   SensorElement] /myExternalDevice/button/0
+[InterfaceElement] /myExternalDevice/tracker
+[   SensorElement] /myExternalDevice/tracker/1
+[   SensorElement] /myExternalDevice/tracker/0
+[    AliasElement] /controller/a
+                     -&gt; /myExternalDevice/button/0
+[    AliasElement] /controller/trigger
+                     -&gt; /myExternalDevice/analog/0
+[    AliasElement] /me/hands/right
+                     -&gt; {&quot;child&quot;:{&quot;changeBasis&quot;:{&quot;x&quot;:&quot;x&quot;,&quot;y&quot;:&quot;-z&quot;,&quot;z&quot;:&quot;-y&quot;},&quot;child&quot;:&quot;/myExternalDevice/tracker/1&quot;},&quot;rotate&quot;:{&quot;axis&quot;:&quot;-x&quot;,&quot;degrees&quot;:180}}
+[    AliasElement] /me/head
+                     -&gt; {&quot;child&quot;:{&quot;changeBasis&quot;:{&quot;x&quot;:&quot;x&quot;,&quot;y&quot;:&quot;-z&quot;,&quot;z&quot;:&quot;-y&quot;},&quot;child&quot;:&quot;/myExternalDevice/tracker/0&quot;},&quot;rotate&quot;:{&quot;axis&quot;:&quot;-x&quot;,&quot;degrees&quot;:180}}
+</code></pre>
+
+<p>There are a few changes to notice. First, you&#39;ll see there are now <code>AliasElement</code> entries for each alias we configured, and the default settings of <code>osvr_print_tree</code> enable printing the target of each alias, whether a string or the compact version of your JSON transform. Additionally, each path representing a sensor that is a valid target of an alias that you&#39;ve specified is now explicitly mentioned as a <code>SensorElement</code>. These sensor elements are automatically generated when resolving aliases. If you don&#39;t see a <code>SensorElement</code> you were trying to target, then you&#39;ve likely made a mistake in specifying the corresponding alias.</p>
+
+<p>As a further test of any tracker aliases you&#39;ve set up, use the <a href="https://github.com/OSVR/OSVR-Tracker-Viewer">OSVR Tracker Viewer</a> application (distributed separately from the core/server - <a href="http://osvr.github.io/using/">click here for binary downloads for the tracker viewer</a>). Run it with the <code>-h</code> command line argument to see how to specify which paths in the path tree you want to visualize. The application opens in the standard OSVR coordinate system, so you can verify that your transformations are correct.</p>
+
+<div class="footnotes">
+<hr>
+<ol>
+
+<li id="fn1">
+<p>Ryan A. Pavlik, PhD is a senior software engineer at Sensics.&nbsp;<a href="#fnref1" rev="footnote">&#8617;</a></p>
+</li>
+
+</ol>
+</div>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script src="../../javascripts/all.js" type="text/javascript"></script>
+<hr>
+<div class='footer'>
+<div class='container'>
+<p>Copyright 2014&ndash;2016 OSVR contributors. See individual projects for applicable license notices.</p>
+<p>
+Please consider supporting the OSVR movement by
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=X5L7QVZBPT2F6">donating to OSVR</a>
+.
+</p>
+
+<p class='text-muted'>
+<small>
+Source code (access requires authorization) at
+<a href='https://github.com/OSVR/OSVR.github.io'>
+https://github.com/OSVR/OSVR.github.io
+</a>
+<br>
+<!-- - This part commented out because it doesn't take into consideration data files. -->
+<!-- - Page last updated -->
+<!-- - = `git log -1 --format="%aD" -- /home/jenkins/workspace/OSVR-github-io/source/whitepapers/vrpn_in_osvr/index.html.md` -->
+Site generated/compiled
+Fri, 20 Apr 2018 11:45:02 +0000
+from commit
+<a href='https://github.com/OSVR/OSVR.github.io/commit/d3f678a
+'>
+d3f678a
+
+</a>
+</small>
+</p>
+</div>
+</div>
+<!-- Start of OSVR Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("//assets.zendesk.com/embeddable_framework/main.js","osvr.zendesk.com");/*]]>*/</script>
+<!-- End of OSVR Zendesk Widget script -->
+
+</div>
+</body>
+</html>

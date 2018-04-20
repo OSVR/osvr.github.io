@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<title>
+OSVR Developer Portal
+|
+Mailing List Etiquette
+</title>
+<!-- all styles, including google web fonts -->
+<link href="../../stylesheets/styles.css" rel="stylesheet" type="text/css" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60529815-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<div class='container'>
+<!-- static navbar -->
+<nav class='navbar navbar-default'>
+<div class='container-fluid'>
+<div class='navbar-header'>
+<button aria-controls='navbar' aria-expanded='false' class='navbar-toggle collapsed' data-target='#navbar' data-toggle='collapse' type='button'>
+<span class='sr-only'>Toggle navigation</span>
+<!-- Pretty sure this part makes the "hamburger menu" -->
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+<a class='navbar-brand' href='/'>
+<img src="../../images/osvr-logo-menu.png" alt="Osvr logo menu" />
+Developer Portal
+</a>
+</div>
+<div class='navbar-collapse collapse' id='navbar'>
+<ul class='nav navbar-nav navbar-right'>
+<li class='dropdown'>
+<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Other OSVR Sites
+<span class='caret'></span>
+</a>
+<ul class='dropdown-menu' role='menu'>
+<li>
+<!-- the query string excludes forks from this list, making it cleaner -->
+<a href='https://github.com/OSVR?query=only%3Asources'>
+GitHub Organization and OSVR Projects
+</a>
+</li>
+<li>
+<a href='https://waffle.io/osvr/osvr-core'>
+OSVR issue tracker summary board on waffle.io
+</a>
+</li>
+<li>
+<a href='http://www.osvr.org/blog/'>
+Dev Blog
+</a>
+</li>
+<li>
+<a href='http://support.osvr.com'>
+Support Portal
+</a>
+</li>
+<li class='divider'></li>
+<li>
+<a href='http://www.osvr.org'>
+OSVR Home
+</a>
+</li>
+</ul>
+</li>
+</ul>
+<!-- google custom search -->
+<script>
+  (function() {
+    var cx = '016285390483464504735:ifzwvrb3lp4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<!--<gcse:search></gcse:search>-->
+
+<div class='navbar-nav navbar-right gcse-osvrnavbar'>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+</nav>
+<div class='container-fluid' id='page-content'>
+<p>These guidelines are based on the <a href="https://www.mozilla.org/en-US/about/forums/etiquette/">mozilla.org Forum Guidelines</a>, used and modified under a <a href="https://www.mozilla.org/en-US/foundation/licensing/website-content/">CC BY-SA Unported 3.0+</a> license. <strong>Note that civil community conduct is of the utmost importance, and these guidelines are not intended to be taken as the only bounds on acceptable conduct.</strong></p>
+
+<h1 id="ground-rules">Ground Rules</h1>
+
+<p>There are a few ground rules for participation in community communication (mailing lists, issues, etc) in the OSVR project. Offenses may result in removal of the conduct from archives, if applicable, and <strong>can result in a temporary or permanent ban of the offending member from the community</strong>. Please respect these rules, and each other.</p>
+
+<h2 id="be-civil">Be civil.</h2>
+
+<p>No personal attacks. Do not feel compelled to defend your honor in public. <strong>Personal attacks and/or harassment of any kind are not tolerated</strong>, and have consequences as discussed above.</p>
+
+<h2 id="stay-on-topic">Stay on topic.</h2>
+
+<p>Community members are busy people, so please pay attention to the topic of your messages, and check that it still relates to the charter of the forum (issue, mailing list, etc) to which you are posting. Off-topic discussion not taken to private email or any place where it is not considered off-topic, by someone who knows they should be taking it elsewhere, may be removed from archives, with patterns of such behavior resulting in more serious consequences as discussed above..</p>
+
+<h2 id="be-kind-to-newcomers">Be kind to newcomers.</h2>
+
+<p>Newcomers may be annoying. They ask the wrong questions, including ones that seem obvious (or whose answers seem easy to find). But lots of valued contributors start out this way, and treating newcomers kindly makes them more likely to turn into the valuable community members we all know and love (and cut some slack when they mess up).</p>
+
+<p>So while you don’t have to humor them or suffer them gladly, and it’s fine to point out when they make mistakes, point newcomers in the right direction in addition to turning them away from the wrong ones, and be kind to them in the process of correcting their transgressions.</p>
+
+<h2 id="let-sleeping-dogs-lie">Let sleeping dogs lie.</h2>
+
+<p>It’s tempting to revisit controversial decisions you disagree with, but it’s rarely productive to do so, since it almost always results in the same heated, lengthy, and time/energy draining discussions leading to the same conclusion that was reached in the last round.</p>
+
+<p>Therefore, for issues already raised, discussed, and decided upon, reopen the discussion only if you have significant new information that would reasonably prompt reconsideration of the original decision.</p>
+
+<h2 id="no-crossposting">No crossposting.</h2>
+
+<p>It is almost never appropriate to send the same message to two mailing lists, forums, or newsgroups. Please don’t do it.</p>
+
+<h2 id="no-advocacy">No advocacy.</h2>
+
+<p>These community venues are for discussions about the OSVR software ecosystem and OSVR HDK design. As such, discussions about which operating system is better, or whether one toolkit is better than another, or whether (<em>insert VR entity here</em>) is the root of all evil, are <strong>not relevant</strong>. There are many forums for discussing such issues on the internet; please have such discussions there instead of in the OSVR community venues.</p>
+
+<h2 id="ignore-spammers">Ignore spammers.</h2>
+
+<p>Spam is a blight upon the face of the net. Nobody likes it. However, it is hard to avoid. Despite our best efforts, you will occasionally see spam on the OSVR mailing lists and newsgroups. If you feel the need to flame the spammer, do not CC the list. Complaining about spam in public increases noise, but not signal. It may make you feel better, but it doesn’t help. (For info on fighting spam effectively, check out <a href="http://spam.abuse.net">spam.abuse.net</a>.)</p>
+
+<h2 id="no-large-attachments">No large attachments.</h2>
+
+<p>Do not send binary attachments, including screen shots, and especially including screen shots of textual dialog boxes. Many people read these messages through slow network connections; try to be respectful of them. If you have a large file that you would like to distribute, put it on a Web page and announce the URL instead of attaching it.</p>
+
+<h2 id="trim-your-follow-ups">Trim your follow-ups.</h2>
+
+<p>Do not quote the entire content of the message to which you are replying. Include only as much as is necessary for context. Remember that if someone wants to read the original message, they can; it is easily accessible. A good rule of thumb is, don’t include more quoted text than new text.</p>
+
+<p>There is always a need for some trimming - either a salutation, a signature, some blank lines or whatever. If you are doing no trimming whatsoever of the quoted text, then you aren’t trimming enough.</p>
+
+<h2 id="top-posting-vs-bottom-posting">Top-posting vs bottom-posting.</h2>
+
+<p>Some people like to put reply after the quoted text, some like it the other way around, and still some prefer interspersed style. Debates about which posting style is better have led to many flame wars in the checkered history of the internet. To keep forum discussion friendly, please do <strong>interspersion with trimming</strong> (see above for trimming rules). For a simple reply, this is equivalent to <strong>bottom-posting</strong>. So, remove extraneous material, and place your comments in logical order, after the text you are commenting upon.</p>
+
+<h2 id="post-html-at-your-own-risk">Post HTML at your own risk.</h2>
+
+<p>Keep in mind that not everyone uses mail or news readers that can easily display HTML messages. Consequently, you will reach a larger audience if you post in plain-text. Many people simply ignore HTML messages, because it takes a nontrivial amount of effort to read them.</p>
+
+<h2 id="report-bugs-in-github-issues-not-in-mailing-lists-forums-etc">Report bugs in GitHub issues, not in mailing lists, forums, etc.</h2>
+
+<p>If you encounter a bug, please take the time to file a report in the appropriate GitHub issues tracker about it. OSVR developers do not all have time to follow all the OSVR-related forums on a regular basis, and if you just post a bug report to a forum or mailing list then it may not reach anyone who can actually do anything about the bug. By reporting the bug through GitHub you ensure that it will receive a higher level of attention, and will be tracked along with other bugs.</p>
+
+<h2 id="identify-your-subject-matter">Identify your subject matter.</h2>
+
+<p>Not everyone has time reading all forum postings. To ensure that your message reach the right people at timely manner, identify your subject matter clearly in the subject line. Subjects like &quot;a question&quot; and &quot;OSVR problem&quot; are not very helpful.</p>
+
+<h2 id="no-unsubscribe-messages">No unsubscribe messages.</h2>
+
+<p>Unfortunately, this bears repeating. Find out more about unsubscribing in the <a href="/mailing-lists">Mailing Lists</a> section.</p>
+
+<h2 id="no-test-messages">No test messages.</h2>
+
+<p>Please do not send test messages to the mailing lists.</p>
+
+<h2 id="devel-is-not-support"><code>devel</code> is not support.</h2>
+
+<p>OSVR is a large effort with many potential audiences. There are specific channels for &quot;support&quot; requests - see <a href="http://support.osvr.com">support.osvr.com</a> - that get different kinds of attention than the development discussion media. When deciding whether a message is a support request or suitable for a <code>devel</code> post, err on the side of sending it to support: support will let you know if your question might be better suited to another venue.</p>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script src="../../javascripts/all.js" type="text/javascript"></script>
+<hr>
+<div class='footer'>
+<div class='container'>
+<p>Copyright 2014&ndash;2016 OSVR contributors. See individual projects for applicable license notices.</p>
+<p>
+Please consider supporting the OSVR movement by
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=X5L7QVZBPT2F6">donating to OSVR</a>
+.
+</p>
+
+<p class='text-muted'>
+<small>
+Source code (access requires authorization) at
+<a href='https://github.com/OSVR/OSVR.github.io'>
+https://github.com/OSVR/OSVR.github.io
+</a>
+<br>
+<!-- - This part commented out because it doesn't take into consideration data files. -->
+<!-- - Page last updated -->
+<!-- - = `git log -1 --format="%aD" -- /home/jenkins/workspace/OSVR-github-io/source/mailing-lists/etiquette/index.html.md` -->
+Site generated/compiled
+Fri, 20 Apr 2018 11:45:02 +0000
+from commit
+<a href='https://github.com/OSVR/OSVR.github.io/commit/d3f678a
+'>
+d3f678a
+
+</a>
+</small>
+</p>
+</div>
+</div>
+<!-- Start of OSVR Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("//assets.zendesk.com/embeddable_framework/main.js","osvr.zendesk.com");/*]]>*/</script>
+<!-- End of OSVR Zendesk Widget script -->
+
+</div>
+</body>
+</html>

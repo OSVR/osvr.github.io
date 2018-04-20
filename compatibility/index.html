@@ -1,0 +1,3044 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<title>
+OSVR Developer Portal
+|
+Compatibility
+</title>
+<!-- all styles, including google web fonts -->
+<link href="../stylesheets/styles.css" rel="stylesheet" type="text/css" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60529815-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<div class='container'>
+<!-- static navbar -->
+<nav class='navbar navbar-default'>
+<div class='container-fluid'>
+<div class='navbar-header'>
+<button aria-controls='navbar' aria-expanded='false' class='navbar-toggle collapsed' data-target='#navbar' data-toggle='collapse' type='button'>
+<span class='sr-only'>Toggle navigation</span>
+<!-- Pretty sure this part makes the "hamburger menu" -->
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+<a class='navbar-brand' href='/'>
+<img src="../images/osvr-logo-menu.png" alt="Osvr logo menu" />
+Developer Portal
+</a>
+</div>
+<div class='navbar-collapse collapse' id='navbar'>
+<ul class='nav navbar-nav navbar-right'>
+<li class='dropdown'>
+<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Other OSVR Sites
+<span class='caret'></span>
+</a>
+<ul class='dropdown-menu' role='menu'>
+<li>
+<!-- the query string excludes forks from this list, making it cleaner -->
+<a href='https://github.com/OSVR?query=only%3Asources'>
+GitHub Organization and OSVR Projects
+</a>
+</li>
+<li>
+<a href='https://waffle.io/osvr/osvr-core'>
+OSVR issue tracker summary board on waffle.io
+</a>
+</li>
+<li>
+<a href='http://www.osvr.org/blog/'>
+Dev Blog
+</a>
+</li>
+<li>
+<a href='http://support.osvr.com'>
+Support Portal
+</a>
+</li>
+<li class='divider'></li>
+<li>
+<a href='http://www.osvr.org'>
+OSVR Home
+</a>
+</li>
+</ul>
+</li>
+</ul>
+<!-- google custom search -->
+<script>
+  (function() {
+    var cx = '016285390483464504735:ifzwvrb3lp4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<!--<gcse:search></gcse:search>-->
+
+<div class='navbar-nav navbar-right gcse-osvrnavbar'>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+</nav>
+<div class='container-fluid' id='page-content'>
+<h1>OSVR Device Compatibility</h1>
+<p>
+This information is necessarily incomplete: there are always new devices being supported by OSVR, and not all development happens in a centralized location or is brought to the attention of the broader OSVR community.
+If you notice an omission, you can submit a pull request for
+<a href="https://github.com/OSVR/OSVR-Compatibility-Aggregator/blob/master/lib/osvr_compatibility_aggregator/device_descriptors.rb">the file/repo</a>
+that fetches the data to generate this page.
+</p>
+<p>
+<em>
+If you notice an error, let us know via the support portal, or by clicking the "Help" button in the lower-right corner of the page.
+</em>
+</p>
+<h2>Operating System Compatibility</h2>
+<p>
+OSVR has been officially ported to run on the following operating systems:
+<ul>
+<li>Windows</li>
+<li>Android</li>
+<li>Linux (partial support)</li>
+<li>
+Mac OS X (see
+<a href="https://github.com/OSVR/Homebrew-OSVR">Homebrew-OSVR GitHub repository</a>
+)
+</li>
+</ul>
+</p>
+<a href="/contributing/">See more details at the list of projects</a>
+<h2>Game Engine Support</h2>
+<p>
+OSVR has plugins that bring its wealth of devices and peripherals into many engines:
+</p>
+<ul>
+<li>
+SteamVR:
+<a href="https://github.com/OSVR/SteamVR-OSVR">SteamVR-OSVR GitHub repository</a>
+</li>
+<li>
+Unity:
+<ul>
+<li><a href="https://github.com/OSVR/OSVR-Unity">OSVR-Unity Github repository</a></li>
+<li><a href="https://www.youtube.com/watch?v=TtLn6XpEisw">Video</a></li>
+<li><a href="https://github.com/OSVR/OSVR-Unity/blob/master/GettingStarted.md">Step-by-step</a></li>
+</ul>
+</li>
+<li>
+Unreal Engine 4.x:
+<ul>
+<li><a href="https://github.com/OSVR/OSVR-Unreal">OSVR-Unreal Github repository</a></li>
+<li><a href="https://www.youtube.com/watch?v=u4Y9pUisL1M">Video</a></li>
+</ul>
+</li>
+<li>CryEngine</li>
+<li>
+Amazon Lumberyard:
+<a href="http://docs.aws.amazon.com/lumberyard/latest/releasenotes/lumberyard-v1.5.html">Version 1.5 release notes</a>
+</li>
+<li>
+Blender:
+<a href="https://github.com/BlendOSVR">BlendOSVR GitHub organization</a>
+</li>
+<li>
+MonoGame:
+<a href="https://github.com/JeroMiya/OSVR-MonoGame">OSVR-MonoGame GitHub repository</a>
+</li>
+<li>
+WebVR:
+<a href="https://github.com/OSVR/OSVR-Docs/blob/master/Integrating-Game-Engines/WebVR/webvr.md">OSVR-WebVR repository</a>
+</li>
+</ul>
+<h2>Display Compatibility</h2>
+<p>
+This table only lists those displays whose display descriptor JSON ships with OSVR-Core or is otherwise known to the wider OSVR community.
+Creating such a descriptor for an arbitrary display is straightforward, meaning this list is nowhere near all-encompassing.
+</p>
+<p>
+Note that due to a temporary technical limitation, displays with multiple modes of operation are listed multiple times in the table, once for each mode.
+</p>
+<table class='table table-striped'>
+<thead>
+<tr>
+<td>Vendor</td>
+<td>Model</td>
+<td>Version</td>
+<td>Notes</td>
+</tr>
+</thead>
+<tbody></tbody>
+<tr>
+<td>Vuzix</td>
+<td>Wrap 1200dx</td>
+<td>1.0</td>
+<td>
+
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/HMD_Vuzix1200dx.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Vuzix</td>
+<td>IWear 720</td>
+<td>1.0</td>
+<td>
+
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/HMD_Vuzix720.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>HDK</td>
+<td>1.2</td>
+<td>
+Suitable for HDK 1.0-1.2
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/OSVR_HDK_1_1.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>HDK</td>
+<td>1.3</td>
+<td>
+Specific to the optics of 1.3, with Render Manager compatible distortion parameters
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/OSVR_HDK_1_3.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>HDK</td>
+<td>1.3</td>
+<td>
+Specific to the optics of 1.3, with a specialized distortion correction requiring apps to use RenderManager 0.6.40 or newer.
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/OSVR_HDK_1_3_with_mesh.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>HDK</td>
+<td>2.0</td>
+<td>
+OSVR HDK 2.0
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/OSVR_HDK_2_0.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Oculus</td>
+<td>Rift</td>
+<td>DK1</td>
+<td>
+
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Oculus_Rift_DK1.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Oculus</td>
+<td>Rift</td>
+<td>DK2</td>
+<td>
+
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Oculus_Rift_DK2.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>dSight</td>
+<td></td>
+<td>
+1920x1080 landscape-mode video, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_dSight_landscape_1input_sbs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>dSight</td>
+<td></td>
+<td>
+1920x1080 landscape-mode video, 2 video inputs
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_dSight_landscape_2inputs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>dSight</td>
+<td></td>
+<td>
+1080x1920 portrait-mode video, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_dSight_portrait_1input_sbs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>dSight</td>
+<td></td>
+<td>
+1080x1920 portrait-mode video, 2 video inputs
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_dSight_portrait_2inputs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>xSight 6123</td>
+<td></td>
+<td>
+Assumes xSight SVP is set for 1920x1080 full screen
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_xSight_6123.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight</td>
+<td>1.1</td>
+<td>
+1280x1024 resolution mode, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1280_1024_1input.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight</td>
+<td>1.1</td>
+<td>
+1280x1024 resolution mode, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1280_1024_1input_sbs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight</td>
+<td>1.1</td>
+<td>
+1280x1024 resolution mode, 2 video inputs
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1280_1024_2inputs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight</td>
+<td>1.1</td>
+<td>
+1280x720 resolution mode, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1280_720_1input.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight</td>
+<td>1.1</td>
+<td>
+1280x720 resolution mode, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1280_720_1input_sbs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight</td>
+<td>1.1</td>
+<td>
+1280x720 resolution mode, 2 video inputs
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1280_720_2inputs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight 1920-100</td>
+<td></td>
+<td>
+1920x1080, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1920_100_1input.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight 1920-100</td>
+<td></td>
+<td>
+1920x1080, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1920_100_1input_sbs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight 1920-100</td>
+<td></td>
+<td>
+1920x1080, 2 video inputs
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1920_100_2inputs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight 1920</td>
+<td></td>
+<td>
+1920x1080, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1920_1input.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight 1920</td>
+<td></td>
+<td>
+1920x1080, 1 video input
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1920_1input_sbs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Sensics</td>
+<td>zSight 1920</td>
+<td></td>
+<td>
+1920x1080, 2 video inputs
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Sensics_zSight_1920_2inputs.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>Vrvana</td>
+<td>Totem</td>
+<td>1</td>
+<td>
+
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/displays/Vrvana_Totem.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>FOVE</td>
+<td>FOVE 0</td>
+<td></td>
+<td>
+
+(Data source:
+<a href="https://github.com/OSVR/OSVR-FOVE/blob/master/displays/FOVE_0.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>HTC</td>
+<td>Vive/Vive PRE</td>
+<td></td>
+<td>
+This is a sample descriptor file only - please follow the instructions to use the ViveDisplayExtractor to generate a correct one for your device!
+(Data source:
+<a href="https://github.com/OSVR/OSVR-Vive/blob/master/displays/HTC_Vive.json">display descriptor</a>
+)
+</td>
+</tr>
+<tr>
+<td>LaputaVR</td>
+<td>Hero</td>
+<td>1.0</td>
+<td>
+Specific to the optics of LaputaVR HMD, with a specialized distortion correction mesh requiring apps to use RenderManager 0.6.40 or newer.
+(Data source:
+<a href="https://github.com/OSVR/OSVR-LaputaVR/blob/master/displays/LaputaVR_Hero2560.json">display descriptor</a>
+)
+</td>
+</tr>
+</table>
+<h2>Interaction device compatibility</h2>
+This is in addition to
+<a href="https://github.com/vrpn/vrpn/wiki/Supported%20hardware%20devices">devices supported by VRPN</a>
+, which can be used in OSVR with some
+<a href="/whitepapers/vrpn_in_osvr/">additional configuration</a>
+<table class='table table-striped'>
+<thead>
+<tr>
+<td>Device Vendor</td>
+<td>Device Name</td>
+<td>Interface Classes Implemented</td>
+<td>Other</td>
+</tr>
+</thead>
+<tbody></tbody>
+<tr>
+<td>OSVR</td>
+<td>Hacker Development Kit (HDK) Integrated IMU Tracker</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>Auto-detected</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/plugins/multiserver/com_osvr_Multiserver_OSVRHackerDevKit.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Razer</td>
+<td>Hydra motion controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>Auto-detected</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/plugins/multiserver/com_osvr_Multiserver_RazerHydra.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>YEI</td>
+<td>3Space Sensor</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/sample-configs/osvr_server_config.HDKv1_YEI.xrightydown.sample.json">Sample config file</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/plugins/multiserver/com_osvr_Multiserver_YEI_3Space_Sensor.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Generic</td>
+<td>OpenCV Video Capture</td>
+<td>
+<ul>
+<li>imaging</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/sample-configs/osvr_server_config.OpenCVCamera.sample.json">Sample config file</a>
+</li>
+<li>
+<p>Provides access to a wide variety of video cameras/webcams on multiple platforms.</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/plugins/opencv/com_osvr_VideoCapture_OpenCV.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>SpacePilot Pro 3D Mouse</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_SpacePilot_Pro_3D_Mouse.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Space Explorer 3D Mouse</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Space_Explorer_3D_Mouse.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Space Navigator 3D Mouse</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Space_Navigator_3D_Mouse.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Space Navigator 3D Mouse for Notebooks</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Space_Navigator_3D_Mouse_for_Notebooks.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Space Traveller 3D Mouse</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Space_Traveller_3D_Mouse.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Spaceball 5000</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Spaceball_5000.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Spacemouse Plus XT</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Spacemouse_Plus_XT.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Spacemouse Pro</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Spacemouse_Pro.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>3Dconnexion</td>
+<td>Spacemouse Wireless</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/3Dconnexion_Spacemouse_Wireless.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Fifth Dimension Technologies</td>
+<td>5DT Data Glove 14 Ultra</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/5DT_Data_Glove_14_Ultra.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Fifth Dimension Technologies</td>
+<td>5DT Data Glove 16</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/5DT_Data_Glove_16.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Fifth Dimension Technologies</td>
+<td>5DT Data Glove 5 Ultra</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/5DT_Data_Glove_5_Ultra.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Advanced Realtime Tracking GmbH</td>
+<td>Flystick</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/ART_Flystick.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Performance Designed Products</td>
+<td>Afterglow Ax1 Controller for XBox 360</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Afterglow_AX1.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Arrington Research</td>
+<td>ViewPoint EyeTracker</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Arrington_Research_ViewPoint_EyeTracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Ascension Technology Corporation</td>
+<td>Flock of Birds</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Ascension_Flock_of_Birds.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Atmel Corporation</td>
+<td>ATmega32</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Atmel_ATmega32.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>BG Systems, Inc.</td>
+<td>CerealBox</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/BG_Systems_CerealBox.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Bauhaus University Weimar</td>
+<td>Inertia Mouse</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Bauhaus_University_Weimar_Inertia_Mouse.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>CH Products</td>
+<td>Fighterstick USB</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/CH_Products_Fighterstick_USB.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Contour Design, Inc.</td>
+<td>ShuttleXpress</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Contour_Design_ShuttleXpress.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Crossbow Technology, Inc.</td>
+<td>RGA300CA</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Crossbow_RGA300CA.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Dream Cheeky</td>
+<td>Roll-up Drum Kit USB</td>
+<td>
+<ul>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Dream_Cheeky_Drum_Kit.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Futaba</td>
+<td>InterLink Elite Controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Futaba_InterLink_Elite.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Generic</td>
+<td>GPS (serial NMEA protocol) tracker</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/GPS_NMEA.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Global Haptics</td>
+<td>Orb</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Global_Haptics_Orb.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Griffin Technology</td>
+<td>PowerMate Controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Griffin_Powermate.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Hayden-Kerk</td>
+<td>IDEA PCM4806X Motor Controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Hayden_Kerk_IDEA_PCM4806X_Motor_Controller.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Hillcrest Labs</td>
+<td>Freespace</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Hillcrest_Labs_Freespace.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>In2Games</td>
+<td>Gametrak</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/In2Games_Gametrak.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>InterSense</td>
+<td>IS-900 MicroTrax Hand tracker</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/InterSense_IS-900_Hand_tracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>InterSense</td>
+<td>IS-900 MicroTrax Head tracker</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/InterSense_IS-900_Head_tracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>InterSense</td>
+<td>IS-900 MicroTrax Wand</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/InterSense_IS-900_Wand.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>LogiCad 3D</td>
+<td>Magellan controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/LogiCad_3D_Magellan_controller.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Logitech</td>
+<td>Extreme 3D Pro Joystick</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Logitech_Extreme_3D_Pro.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Solution Technologies, Inc.</td>
+<td>MicroScribe 3D</td>
+<td>
+<ul>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/MicroScribe_3D.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Mindtel LLC</td>
+<td>Totally Neat Gadget (TNG) 3</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Mindtel_TNG3.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Motion Workshop</td>
+<td>MotionNode</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Motion_Workshop_MotionNode.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Northern Digital Inc</td>
+<td>Polaris Spectra</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/NDI_Polaris_Spectra.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Northern Digital Inc</td>
+<td>Polaris Vicra</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/NDI_Polaris_Vicra.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>National Instruments</td>
+<td>DAQCard DIO 24</td>
+<td>
+<ul>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/National_Instruments_DAQCard_DIO_24.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Nintendo</td>
+<td>WiiMote</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Nintendo_WiiMote.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Novint Technologies Inc</td>
+<td>Falcon</td>
+<td>
+<ul>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Novint_Falcon.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Oculus VR</td>
+<td>Rift DK1</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Oculus_Rift_DK1.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Oculus VR</td>
+<td>Rift DK2</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Oculus_Rift_DK2.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Origin Instruments</td>
+<td>DynaSight</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Origin_Instruments_DynaSight.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>PNI Sensor Corporation</td>
+<td>SpacePoint Fusion</td>
+<td>
+<ul>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/PNI_SpacePoint_Fusion_tracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>PhaseSpace</td>
+<td>Motion Capture</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/PhaseSpace_Motion_Capture.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Polhemus</td>
+<td>3Space</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Polhemus_3Space_Tracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Polhemus</td>
+<td>G4</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Polhemus_G4.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Polhemus</td>
+<td>Isotrak tracker</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Polhemus_Isotrak_tracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Polhemus</td>
+<td>LIBERTY</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Polhemus_LIBERTY.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Polhemus</td>
+<td>LIBERTY LATUS</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Polhemus_LIBERTY_LATUS.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Polhemus</td>
+<td>PowerTRAK 360</td>
+<td>
+<ul>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Polhemus_PowerTRAK_360.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Retrolink USB</td>
+<td>Classic GameCube-style Controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Retrolink_Classic_GameCube-style_Controller.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Retrolink USB</td>
+<td>Classic Genesis Controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Retrolink_Classic_Genesis_Controller.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Saitek</td>
+<td>ST290 Pro Joystick</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Saitek_ST290.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>SideWinder Precision (raw driver)</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Sidewinder.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>SideWinder Precision 2 (raw driver)</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Sidewinder2.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>TRIVISIO Prototyping GmbH</td>
+<td>Colibri</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/TRIVISIO_Colibri.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Thalmic Labs</td>
+<td>Myo</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Thalmic_Labs_Myo.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>US Digital</td>
+<td>A2 Absolute Rotary Encoder</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/US_Digital_A2_Absolute_Rotary_Encoder.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>VR-Space</td>
+<td>WinTrackerIII</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/VR-Space_WinTrackerIII.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Vinten Radamec</td>
+<td>Serial Port Interface (SPI)</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Vinten_Radamec_SPI.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys Desktop USB</td>
+<td>
+<ul>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_Desktop_USB.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys Jog and Shuttle</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_Jog_and_Shuttle.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys Joystick</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_Joystick.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys Professional USB</td>
+<td>
+<ul>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_Pro_USB.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys XK-12 Jog and Shuttle</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_XK-12_Jog_and_Shuttle.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys XK-12 Joystick</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_XK-12_Joystick.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys XK-3</td>
+<td>
+<ul>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_XK-3.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>P.I. Engineering</td>
+<td>X-keys XK-68 Jog and Shuttle</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/X-keys_XK-68_Jog_and_Shuttle.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>X-Box Controller 360 (and compatible - raw driver)</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Xbox_Controller360.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>X-Box Controller S (and compatible - raw driver)</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Xbox_ControllerS.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Yost Labs (YEI)</td>
+<td>3-Space Sensor</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Yost_3-Space.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Zaber</td>
+<td>T-LA linear actuator</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Included with
+<a href="https://github.com/OSVR/OSVR-Core">OSVR-Core</a>
+</li>
+<li>
+<p>External device supported using VRPN and descriptor/configuration files bundled with OSVR-Core</p>
+
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Core/blob/master/apps/external-devices/device-descriptors/Zaber_T-LA.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Leap Motion</td>
+<td>Leap Motion Controller</td>
+<td>
+<ul>
+<li>analog</li>
+<li>imaging</li>
+<li>skeleton</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-Leap-Motion">OSVR/OSVR-Leap-Motion</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Leap-Motion/blob/master/com_osvr_LeapMotion.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Hillcrest Labs</td>
+<td>FSM-9 Tracker</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-FSM9">OSVR/OSVR-FSM9</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-FSM9/blob/master/com_osvr_Freespace.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Nod</td>
+<td>Backspin</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Auto-detected</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-Nod">OSVR/OSVR-Nod</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Nod/blob/master/Plugin/NodOSVR.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>HTC</td>
+<td>Vive PRE and Vive Controllers</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p><a href="http://access.osvr.com/binary/vive">Pre-built Windows binaries</a></p>
+
+</li>
+<li>Auto-detected</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-Vive/blob/master/osvr_server_config.vive.sample.json">Sample config file</a>
+</li>
+<li>
+<p>Configuration file specifies display descriptor.</p>
+
+</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-Vive">OSVR/OSVR-Vive</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Vive/blob/master/com_osvr_Vive.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>SMI</td>
+<td> Tracker</td>
+<td>
+<ul>
+<li>eyetracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p><a href="http://access.osvr.com/binary/smi">Pre-built 32-bit Windows binaries</a></p>
+
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-SMI/blob/master/osvr_server_config.SMIeyeTracker.sample.json">Sample config file</a>
+</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-SMI">OSVR/OSVR-SMI</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-SMI/blob/master/com_osvr_SMI_EyeTracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>FOVE</td>
+<td>Fove Eye Tracker Plugin</td>
+<td>
+<ul>
+<li>eyetracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p><a href="http://access.osvr.com/binary/fove">Pre-built 64-bit Windows binaries</a></p>
+
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-FOVE/blob/master/osvr_server_config.json">Sample config file</a>
+</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-FOVE">OSVR/OSVR-FOVE</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-FOVE/blob/master/com_osvr_fove_eyetracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>FOVE</td>
+<td>Fove Head Tracker Plugin</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p><a href="http://access.osvr.com/binary/fove">Pre-built 64-bit Windows binaries</a></p>
+
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-FOVE/blob/master/osvr_server_config.json">Sample config file</a>
+</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-FOVE">OSVR/OSVR-FOVE</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-FOVE/blob/master/com_osvr_fove_tracker.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Oculus VR</td>
+<td>Oculus Rift Tracker/Sensors (via Oculus SDK)</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p><a href="http://access.osvr.com/binary/oculus">Pre-built Windows binaries</a></p>
+
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-Oculus-Rift/blob/master/osvr_server_config.oculusrift.sample.json">Sample config file</a>
+</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-Oculus-Rift">OSVR/OSVR-Oculus-Rift</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-Oculus-Rift/blob/master/com_osvr_OculusRift.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>StandardFirmata</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-firmata">simlrh/OSVR-firmata</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-firmata/blob/master/je_nourish_firmata.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Oculus VR</td>
+<td>Oculus Rift Trackers/Sensors (via OpenHMD)</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-OpenHMD">simlrh/OSVR-OpenHMD</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-OpenHMD/blob/master/je_nourish_openhmd.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Kinect for Windows</td>
+<td>
+<ul>
+<li>analog</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-Kinect">simlrh/OSVR-Kinect</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-Kinect/blob/master/je_nourish_kinectv1.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Kinect for Xbox ONE</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-Kinect">simlrh/OSVR-Kinect</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-Kinect/blob/master/je_nourish_kinectv2.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Nintento</td>
+<td>Wiimote</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-Wiimote">simlrh/OSVR-Wiimote</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-Wiimote/blob/master/je_nourish_wiimote.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Ximmerse</td>
+<td>Ximmerse Outside/In Controllers</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/demonixis/OSVR-Ximmerse">demonixis/OSVR-Ximmerse</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/demonixis/OSVR-Ximmerse/blob/master/net_demonixis_ximmerse.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>Comprehensive Plugin Example</td>
+<td>
+<ul>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-psmoveapi">simlrh/OSVR-psmoveapi</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-psmoveapi/blob/master/je_nourish_psmovecamera.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>OSVR</td>
+<td>Comprehensive Plugin Example</td>
+<td>
+<ul>
+<li>analog</li>
+<li>button</li>
+<li>tracker</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+Repo:
+<a href="https://github.com/simlrh/OSVR-psmoveapi">simlrh/OSVR-psmoveapi</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/simlrh/OSVR-psmoveapi/blob/master/je_nourish_psmovecontroller.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>LaputaVR</td>
+<td>Hero</td>
+<td>
+<ul>
+<li>analog</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>
+<p><a href="http://access.osvr.com/binary/laputavr">Pre-built Windows binaries</a></p>
+
+</li>
+<li>
+<a href="https://github.com/OSVR/OSVR-LaputaVR/blob/master/osvr_server_config.laputa.sample.json">Sample config file</a>
+</li>
+<li>
+Repo:
+<a href="https://github.com/OSVR/OSVR-LaputaVR">OSVR/OSVR-LaputaVR</a>
+</li>
+<li>
+Data source:
+<a href="https://github.com/OSVR/OSVR-LaputaVR/blob/master/com_osvr_Laputa.json">JSON device descriptor</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script src="../javascripts/all.js" type="text/javascript"></script>
+<hr>
+<div class='footer'>
+<div class='container'>
+<p>Copyright 2014&ndash;2016 OSVR contributors. See individual projects for applicable license notices.</p>
+<p>
+Please consider supporting the OSVR movement by
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=X5L7QVZBPT2F6">donating to OSVR</a>
+.
+</p>
+
+<p class='text-muted'>
+<small>
+Source code (access requires authorization) at
+<a href='https://github.com/OSVR/OSVR.github.io'>
+https://github.com/OSVR/OSVR.github.io
+</a>
+<br>
+<!-- - This part commented out because it doesn't take into consideration data files. -->
+<!-- - Page last updated -->
+<!-- - = `git log -1 --format="%aD" -- /home/jenkins/workspace/OSVR-github-io/source/compatibility/index.html.haml` -->
+Site generated/compiled
+Fri, 20 Apr 2018 11:45:11 +0000
+from commit
+<a href='https://github.com/OSVR/OSVR.github.io/commit/d3f678a
+'>
+d3f678a
+
+</a>
+</small>
+</p>
+</div>
+</div>
+<!-- Start of OSVR Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("//assets.zendesk.com/embeddable_framework/main.js","osvr.zendesk.com");/*]]>*/</script>
+<!-- End of OSVR Zendesk Widget script -->
+
+</div>
+</body>
+</html>
